@@ -44,6 +44,17 @@ namespace ItemsDatEncoder
             //byte unused = byte.Parse(a[0].Split('|')[1]);
             //int itemCount = int.Parse(a[1].Split('|')[1]);
 
+            if (File.Exists("item_defs.txt"))
+            {
+                Console.WriteLine("item_defs.txt Found! Encoding...");
+            }
+            else
+            {
+                Console.WriteLine("item_defs.txt Not Found! Quitting...");
+                Thread.Sleep(5000);
+                Environment.Exit(0);
+            }
+            
             byte unused = 0x11;
             int itemCount = 0;
 
