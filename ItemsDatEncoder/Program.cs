@@ -231,7 +231,10 @@ namespace ItemsDatEncoder
                 stream.WriteByte(collisionType);
                 stream.WriteByte(hitsDestroy);
                 stream.WriteByte(dropChance);
-                stream.WriteInt(clothingType);
+                stream.WriteByte((byte)((clothingType >> 24) & 0xff));
+                stream.WriteByte((byte)((clothingType >> 16) & 0xff));
+                stream.WriteByte((byte)((clothingType >>  8) & 0xff));
+                stream.WriteByte((byte)((clothingType >>  0) & 0xff));
                 stream.WriteShort(rarity);
                 stream.WriteByte(toolKind);
                 stream.WriteShort(audioFileLen);
