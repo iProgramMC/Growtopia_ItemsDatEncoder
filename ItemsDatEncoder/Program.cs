@@ -65,14 +65,14 @@ namespace ItemsDatEncoder
                 string[] datas = lines[ccc].Split('\\');
                 if (datas[0] != "add_item")
                 {
-                    if (datas[0] == "unused")
+                    if (datas[0] == "item_db_ver")
                     {
                         unused = byte.Parse(datas[1]);
                         // write them to the items.dat :upside_down:
                         stream.WriteByte(unused);
                         stream.WriteByte(0);
                     }
-                    if (datas[0] == "itemCount")
+                    if (datas[0] == "item_count")
                     {
                         itemCount = int.Parse(datas[1]);
                         // write them to the items.dat :upside_down:
