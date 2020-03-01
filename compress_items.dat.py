@@ -1,0 +1,11 @@
+import zlib
+print('loading...')
+f = open('items_uncompressed.dat', 'rb')
+print('compressing...')
+compressed_data = zlib.compress(f.read())
+print('done compressing. saving...')
+f.close()
+f2 = open('items.dat', 'wb')
+f2.write(compressed_data)
+f2.close()
+print('success')
