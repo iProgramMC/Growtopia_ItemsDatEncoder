@@ -33,7 +33,7 @@ namespace ItemsDatEncoder
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Growtopia items.dat decoder (C) 2019-2022 iProgramInCpp");
+            Console.WriteLine("Growtopia items.dat Encoder (C) 2019-2022 iProgramInCpp");
             Console.WriteLine("This program is licensed under the MIT license.");
             Console.WriteLine("View https://opensource.org/licenses/MIT for more info.");
             string fileRes = "items.dat";
