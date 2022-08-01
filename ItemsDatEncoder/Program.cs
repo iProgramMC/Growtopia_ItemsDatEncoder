@@ -33,7 +33,7 @@ namespace ItemsDatEncoder
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Growtopia items.dat decoder (C) 2019 iProgramInCpp");
+            Console.WriteLine("Growtopia items.dat decoder (C) 2019-2022 iProgramInCpp");
             Console.WriteLine("This program is licensed under the MIT license.");
             Console.WriteLine("View https://opensource.org/licenses/MIT for more info.");
             string fileRes = "items.dat";
@@ -49,9 +49,9 @@ namespace ItemsDatEncoder
             }
             else
             {
-                Console.WriteLine("item_defs.txt Not Found!\nPress any key to Quit");
+                Console.WriteLine("item_defs.txt not found. \nPress any key to quit");
                 Console.ReadKey();
-                Environment.Exit(0);
+                return;
             }
             byte unused = 0x11;
             int itemCount = 0;
@@ -284,6 +284,14 @@ namespace ItemsDatEncoder
                 for (int i = 0; i < 50; i++) stream.WriteByte(0);
                 stream.WriteShort((short)extraFieldUnk_5.Length);
                 stream.Write(Encoding.ASCII.GetBytes(extraFieldUnk_5), 0, extraFieldUnk_5.Length);
+
+                if (unused > 11)
+                {
+                    for (int i = 0; i < 4; i++) stream.WriteByte(0);
+                    for (int i = 0; i < 9; i++) stream.WriteByte(9);
+                    for (int i = 0; i < 8; i++) stream.WriteByte(0);
+                }
+
                 //for (int i = 0; i < 92; i++) stream.WriteByte(0);
                 Console.WriteLine("Wrote item ID " + itemID + ".");
             }
