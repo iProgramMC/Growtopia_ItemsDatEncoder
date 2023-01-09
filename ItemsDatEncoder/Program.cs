@@ -279,7 +279,7 @@ namespace ItemsDatEncoder
                 stream.WriteShort(value);
                 stream.WriteShort(value2);
                 stream.WriteShort(unkValueShort1);
-                for (int i = 0; i < 16 - value; i++) stream.WriteByte(0);
+                for (int i = 0; i < 16; i++) stream.WriteByte(0);
                 stream.WriteShort(unkValueShort2);
                 for (int i = 0; i < 50; i++) stream.WriteByte(0);
                 stream.WriteShort((short)extraFieldUnk_5.Length);
